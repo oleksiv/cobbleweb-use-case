@@ -16,16 +16,16 @@ class ToyCreator {
         /**
          * @var $person People
          */
-        $person = $args->getObject();
+        $entity = $args->getObject();
 
-        if ($person instanceof People) {
+        if ($entity instanceof People) {
 
             $om = $args->getObjectManager();
 
             $toy = new Toy();
-            $toy->setName(sprintf("%s_%s", $person->getName(), $person->getAge()));
+            $toy->setName(sprintf("%s_%s", $entity->getName(), $entity->getAge()));
             $toy->setCreatedAt(new \DateTime());
-            $toy->setPerson($person);
+            $toy->setPerson($entity);
 
             $om->persist($toy);
             $om->flush();
