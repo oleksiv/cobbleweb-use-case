@@ -1,0 +1,38 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <div class="text-left">
+                <a href="{{ path('people_index') }}" class="btn btn-sm btn-outline-secondary mb-4">Back</a>
+            </div>
+
+            {{ form_start(form) }}
+
+                <div class="form-group">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.name) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.email) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.age) }}
+                    {{ form_widget(form.age, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.age) }}
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-outline-primary">Create</button>
+                </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

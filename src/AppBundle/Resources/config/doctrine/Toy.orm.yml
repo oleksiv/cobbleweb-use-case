@@ -1,0 +1,22 @@
+AppBundle\Entity\Toy:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ToyRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+            column: created_at
+    manyToOne:
+        people:
+            targetEntity: AppBundle\Entity\People
+            inversedBy: toys
+    lifecycleCallbacks: {  }

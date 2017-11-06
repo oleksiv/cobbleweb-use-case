@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <!-- Bootstrap -->
+        {% stylesheets output="css/base.css" filter="cssrewrite"
+        "bundles/cobblewebapp/bower_components/bootstrap/dist/css/bootstrap.min.css"
+        "bundles/cobblewebapp/bower_components/fontawesome/css/font-awesome.min.css"
+        "bundles/cobblewebapp/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        <!-- Main styles -->
+        {% stylesheets filter="scssphp" output="css/app.css"
+        "../app/Resources/public/sass/style.scss"
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <!-- Header Start -->
+        {% include '::layout/parts/header.html.twig' %}
+        <!-- Header End -->
+        <div class="container">
+        {% block body %}{% endblock %}
+        </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

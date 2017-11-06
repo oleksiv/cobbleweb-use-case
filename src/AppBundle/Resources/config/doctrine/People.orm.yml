@@ -1,0 +1,25 @@
+AppBundle\Entity\People:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\PeopleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        age:
+            type: integer
+    oneToMany:
+        toys:
+            targetEntity: AppBundle\Entity\Toy
+            mappedBy: people
+            fetch: EAGER
+    lifecycleCallbacks: {  }

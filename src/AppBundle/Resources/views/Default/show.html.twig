@@ -1,0 +1,39 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <div class="text-left">
+                <a href="{{ path('people_index') }}" class="btn btn-sm btn-outline-secondary mb-4">Back</a>
+            </div>
+
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td>{{ person.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>{{ person.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Age:</td>
+                        <td>{{ person.age }}</td>
+                    </tr>
+                    <tr>
+                        <td>Toys:</td>
+                        <td>
+                            <ul>
+                                {% for toy in person.toys %}
+                                    <li>{{ toy.name ~ ' - ' ~ toy.createdAt | date }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
