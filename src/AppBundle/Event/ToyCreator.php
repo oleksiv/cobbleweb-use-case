@@ -13,9 +13,7 @@ class ToyCreator {
      */
     public function postPersist(LifecycleEventArgs $args)
     {
-        /**
-         * @var $person People
-         */
+
         $entity = $args->getObject();
 
         if ($entity instanceof People) {
