@@ -13,14 +13,15 @@ class ToyCreator {
      */
     public function postPersist(LifecycleEventArgs $args)
     {
-        $om = $args->getObjectManager();
-
         /**
          * @var $person People
          */
         $person = $args->getObject();
 
         if ($person instanceof People) {
+
+            $om = $args->getObjectManager();
+
             $toy = new Toy();
             $toy->setName(sprintf("%s_%s", $person->getName(), $person->getAge()));
             $toy->setCreatedAt(new \DateTime());
@@ -28,6 +29,7 @@ class ToyCreator {
 
             $om->persist($toy);
             $om->flush();
+
         }
     }
 
